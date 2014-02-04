@@ -7,8 +7,9 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Guilherme Otranto"]
   s.email       = ["guilherme_otran@hotmail.com"]
-  s.summary     = "A Mad Mimi delivery method for ActionMailer, Rails 4."
-  s.description = s.summary
+  s.summary     = "A Mad Mimi Mail delivery for ActionMailer, Rails 4."
+  s.description = "ActionMailer send method for madmimi api"
+  s.homepage    = "https://github.com/guilherme-otran/madmimi-rails4"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
