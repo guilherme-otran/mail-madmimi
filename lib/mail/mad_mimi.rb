@@ -1,12 +1,14 @@
+require 'httparty'
+
 module Mail
   class MadMimi
     class MadMimiError < StandardError; end
     attr_accessor :settings
 
-    include HTTParty
+    include ::HTTParty
     base_uri 'https://api.madmimi.com'
 
-    def initialize(settings)
+    def initialize(settings = {})
       unless settings[:username] && settings[:api_key]
         raise MadMimiError, "Missing username or api_key"
       end
