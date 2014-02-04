@@ -1,12 +1,17 @@
 module Mail
   class MadMimi
-    class MadMimiError < StandardError;
+    class MadMimiError < StandardError; end
+    attr_accessor :settings
 
     include HTTParty
     base_uri 'https://api.madmimi.com'
 
     def initialize(settings)
-      @auth = settings
+      unless settings[:username] && settings[:api_key]
+        raise MadMimiError, "Missing username or api_key"
+      end
+
+      self.settings = settings
     end
 
     def deliver!(mail)
@@ -23,14 +28,14 @@ module Mail
 
     private
     def email_body(mail)
-      {
+      settings.merge(
         from:           mail[:from].to_s,
         recipient:      mail[:to].to_s,
         bcc:            mail[:bcc].to_s,
         subject:        mail.subject,
         promotion_name: mail[:promotion_name].to_s,
         raw_html:       html_data(mail).to_s
-      }.merge @auth
+      )
     end
 
     def html_data(mail)
