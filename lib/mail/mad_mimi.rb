@@ -50,8 +50,6 @@ module Mail
       end
     end
 
-    if defined? ActionMailer::Base
-      ActionMailer::Base.add_delivery_method :mad_mimi, Mail::MadMimi, username: "", api_key: ""
-    end
+    ActionMailer::Base.add_delivery_method :mad_mimi, Mail::MadMimi, username: "", api_key: ""
   end
 end
