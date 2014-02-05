@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "httparty", "~> 0.12.0"
   s.add_runtime_dependency "mail"
   s.add_runtime_dependency "actionmailer"
+  s.add_development_dependency "rspec"
 end
