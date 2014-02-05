@@ -1,9 +1,9 @@
 require 'httparty'
 
 module Mail
-  module MadMimi
+  module Madmimi
     class Sender
-      class MadMimiError < StandardError; end
+      class MadmimiError < StandardError; end
       attr_accessor :settings
 
       include ::HTTParty
@@ -11,7 +11,7 @@ module Mail
 
       def initialize(settings = {})
         unless settings[:username] && settings[:api_key]
-          raise MadMimiError, "Missing username or api_key"
+          raise MadmimiError, "Missing username or api_key"
         end
 
         self.settings = settings
@@ -25,7 +25,7 @@ module Mail
       def parse_response(resp)
         case resp.headers["status"]
           when 200..299 then resp.parsed_response
-          else raise Error.new "status=#{resp.headers["status"]}; " + resp.parsed_response
+          else raise MadmimiError.new "status=#{resp.headers["status"]}; " + resp.parsed_response
         end
       end
 
