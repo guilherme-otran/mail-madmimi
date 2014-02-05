@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
@@ -17,6 +17,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency "httparty", "~> 0.12.0"
-  s.add_runtime_dependency "mail", "~> 2.2"
-  s.add_development_dependency "actionmailer", "~> 3.0"
+  s.add_runtime_dependency "mail"
+  s.add_development_dependency "actionmailer"
 end
