@@ -1,10 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'mail/mad_mimi/version'
 
 Gem::Specification.new do |s|
   s.name        = "madmimi-rails4"
-  s.version     = "0.0.1"
+  s.version     = Mail::MadMimi::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Guilherme Otranto"]
   s.email       = ["guilherme_otran@hotmail.com"]
