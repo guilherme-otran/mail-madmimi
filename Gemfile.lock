@@ -2,8 +2,9 @@ PATH
   remote: .
   specs:
     madmimi-rails4 (0.0.1)
+      actionmailer
       httparty (~> 0.12.0)
-      mail (~> 2.2)
+      mail
 
 GEM
   remote: http://rubygems.org/
@@ -62,5 +63,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionmailer (~> 3.0)
   madmimi-rails4!
