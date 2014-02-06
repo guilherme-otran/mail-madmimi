@@ -7,7 +7,7 @@ describe Mail::Madmimi, "ActionMailer load process" do
 end
 
 describe Mail::Madmimi, "ActionMailer integration process" do
-  let(:email) { TestMailer.test_mail }
+  let(:email) { TestMailer.test_mail(promotion_name: "Bla", to: "hi@hi.com") }
   let(:valid_settings) { { username: "none@example.com", api_key: "1234567890" } }
 
   before do

@@ -30,14 +30,24 @@ module Mail
       end
 
       def email_post_body(mail)
-        settings.merge(
-          from:           mail[:from].to_s,
-          recipient:      mail[:to].to_s,
-          bcc:            mail[:bcc].to_s,
-          subject:        mail.subject,
+        options = settings.merge(
+          recipients:     mail[:to].to_s,
           promotion_name: mail[:promotion_name].to_s,
+          subject:        mail.subject.to_s,
           raw_html:       html_data(mail).to_s
         )
+
+        options.merge!(from: mail[:from].to_s) unless mail[:from].to_s.empty?
+        options.merge!(bcc:  mail[:bcc].to_s)  unless mail[:bcc].to_s.empty?
+
+        boolean_params = [:check_suppressed, :track_links, :hidden,
+          :skip_placeholders, :remove_unsubscribe]
+
+        boolean_params.each do |param|
+          options.merge!(param => mail[param].to_s) unless mail[param].to_s.empty?
+        end
+
+        options
       end
 
       def html_data(mail)

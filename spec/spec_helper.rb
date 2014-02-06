@@ -2,12 +2,8 @@ require 'action_mailer'
 require 'mail/madmimi'
 
 class TestMailer < ActionMailer::Base
-  def test_mail
-    mail(to: "somebody@example.org",
-      promotion_name: "Promo",
-      from: "from@example.org",
-      bcc: "bcc@example.org",
-      subject: "Some subject") do |format|
+  def test_mail(params_to_test)
+    mail(params_to_test) do |format|
         format.html { render(text: "Oi :P") }
       end
   end
@@ -33,3 +29,4 @@ class IncorrectResponse
     "Not authorized"
   end
 end
+
