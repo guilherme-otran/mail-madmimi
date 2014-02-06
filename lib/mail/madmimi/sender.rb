@@ -18,7 +18,7 @@ module Mail
       end
 
       def deliver!(mail)
-        resp = self.class.post '/mailer', body: email_body(mail)
+        resp = self.class.post '/mailer', body: email_post_body(mail)
         parse_response(resp)
       end
 
@@ -29,8 +29,7 @@ module Mail
         end
       end
 
-      private
-      def email_body(mail)
+      def email_post_body(mail)
         settings.merge(
           from:           mail[:from].to_s,
           recipient:      mail[:to].to_s,
