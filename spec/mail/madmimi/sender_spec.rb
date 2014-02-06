@@ -3,7 +3,8 @@ require 'spec_helper'
 describe Mail::Madmimi::Sender do
   let(:valid_settings) { { username: "none@example.com", api_key: "1234567890" } }
   let(:mimi_sender) { described_class.new valid_settings }
-  let(:email) { TestMailer.test_mail }
+  let(:email_basic_options) { { to: "somebody@example.org", promotion_name: "Promo", subject: "Hi" } }
+  let(:email) { TestMailer.test_mail(email_basic_options) }
 
   context "Create without api key or username" do
     it "should raise an error" do
@@ -17,24 +18,49 @@ describe Mail::Madmimi::Sender do
         mimi_sender.email_post_body(email)[:promotion_name].should == "Promo"
       end
 
-      it "from" do
-        mimi_sender.email_post_body(email)[:from].should == "from@example.org"
-      end
-
-      it "recipient" do
-        mimi_sender.email_post_body(email)[:recipient].should == "somebody@example.org"
-      end
-
-      it "bcc" do
-        mimi_sender.email_post_body(email)[:bcc].should == "bcc@example.org"
-      end
-
-      it "subject" do
-        mimi_sender.email_post_body(email)[:subject].should == "Some subject"
+      it "recipients" do
+        mimi_sender.email_post_body(email)[:recipients].should == "somebody@example.org"
       end
 
       it "raw_html" do
         mimi_sender.email_post_body(email)[:raw_html].should == "Oi :P"
+      end
+
+      it "subject" do
+        mimi_sender.email_post_body(email)[:subject].should == "Hi"
+      end
+    end
+
+    context "optional string attributes" do
+      [:from, :bcc].each do |attribute|
+        it "include the #{attribute}" do
+          my_mail_options = email_basic_options.merge(attribute => attribute.to_s)
+          my_email = TestMailer.test_mail(my_mail_options)
+          mimi_sender.email_post_body(my_email)[attribute].should == attribute.to_s
+        end
+
+        it "not include #{attribute}" do
+          mimi_sender.email_post_body(email).should_not have_key(attribute)
+        end
+      end
+    end
+
+    context "optional boolean params" do
+      booleans = [:check_suppressed, :track_links, :hidden,
+          :skip_placeholders, :remove_unsubscribe]
+
+      booleans.each do |attribute|
+        [:on, :off].each do |boolean|
+          it "include the #{attribute} with #{boolean}" do
+            my_mail_options = email_basic_options.merge(attribute => boolean)
+            my_email = TestMailer.test_mail(my_mail_options)
+            mimi_sender.email_post_body(my_email)[attribute].should == boolean.to_s
+          end
+        end
+
+        it "not include #{attribute}" do
+          mimi_sender.email_post_body(email).should_not have_key(attribute)
+        end
       end
     end
   end
