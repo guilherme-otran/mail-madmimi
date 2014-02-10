@@ -1,7 +1,9 @@
 mail-madmimi
 ==============
+[![Build Status](https://travis-ci.org/guilherme-otran/mail-madmimi.png?branch=master)](https://travis-ci.org/guilherme-otran/mail-madmimi)
+[![Dependency Status](https://gemnasium.com/guilherme-otran/mail-madmimi.png)](https://gemnasium.com/guilherme-otran/mail-madmimi)
 
-Integration of Mad Mimi with ActionMailer (Tested Rails 4)
+Integration of Mad Mimi with ActionMailer (Tested with Rails 4)
 
 ## Gemfile
     gem "mail-madmimi"
