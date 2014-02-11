@@ -12,7 +12,7 @@ describe Mail::Madmimi::Sender do
     end
   end
 
-  describe "email_post_body" do
+  describe "#email_post_body" do
     context "return a hash with mimi required attributes" do
       it "promotion_name" do
         mimi_sender.email_post_body(email)[:promotion_name].should == "Promo"
@@ -65,7 +65,7 @@ describe Mail::Madmimi::Sender do
     end
   end
 
-  describe "parse_response" do
+  describe "#parse_response" do
     context "Received a ok response" do
       let(:ok_reponse) { CorrectResponse.new }
 
@@ -82,7 +82,7 @@ describe Mail::Madmimi::Sender do
     end
   end
 
-  describe "deliver!" do
+  describe "#deliver!" do
     it "posted the email" do
       Mail::Madmimi::Sender.should_receive(:post).and_return(CorrectResponse.new)
       mimi_sender.deliver!(email)

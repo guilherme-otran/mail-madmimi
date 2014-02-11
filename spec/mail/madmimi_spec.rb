@@ -15,7 +15,7 @@ describe Mail::Madmimi, "ActionMailer integration process" do
     ActionMailer::Base.mad_mimi_settings = valid_settings
   end
 
-  it "Madmimi::Sender instance should receive the mail for send it when delivered" do
+  it "Madmimi::Sender instance should receive the mail to send after delivering it" do
     Mail::Madmimi::Sender.any_instance.should_receive(:deliver!).with(email)
     email.deliver
   end
