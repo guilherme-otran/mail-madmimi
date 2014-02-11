@@ -18,8 +18,10 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
+  # This gem will work with 1.9.3 or greater...
+  s.required_ruby_version = '>= 1.9.3'
   s.add_runtime_dependency "httparty", "~> 0.12.0"
-  s.add_runtime_dependency "mail"
-  s.add_runtime_dependency "actionmailer"
-  s.add_development_dependency "rspec"
+  s.add_runtime_dependency "mail", "~> 2.5.4"
+  s.add_runtime_dependency "actionmailer", "~> 4.0.2"
+  s.add_development_dependency "rspec", "~> 2.14.1"
 end
