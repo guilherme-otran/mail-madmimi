@@ -7,7 +7,7 @@ describe Mail::Madmimi::Sender do
   let(:email) { TestMailer.test_mail(email_basic_options) }
 
   context "Create without api key or username" do
-    it "should raise an error" do
+    it "raises an error" do
       expect { described_class.new }.to raise_error Mail::Madmimi::Sender::MadmimiError
     end
   end
