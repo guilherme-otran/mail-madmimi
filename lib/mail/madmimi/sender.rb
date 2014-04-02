@@ -31,7 +31,7 @@ module Mail
 
       def email_post_body(mail)
         options = settings.merge(
-          recipients:     mail[:to].to_s,
+          recipients:     mail[:to].to_s.gsub(",", ";"),
           promotion_name: mail[:promotion_name].to_s,
           subject:        mail.subject.to_s,
           raw_html:       html_data(mail).to_s
