@@ -23,7 +23,7 @@ module Mail
       end
 
       def parse_response(resp)
-        case resp.headers["status"]
+        case resp.headers["status"].to_i
           when 200..299 then resp.parsed_response
           else raise MadmimiError.new "status=#{resp.headers["status"]}; " + resp.parsed_response
         end

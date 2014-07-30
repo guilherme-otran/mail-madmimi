@@ -11,7 +11,7 @@ end
 
 class CorrectResponse
   def headers
-    { "status" => 200 }
+    { "status" => "200" }
   end
 
   def parsed_response
@@ -22,7 +22,7 @@ end
 
 class IncorrectResponse
   def headers
-    { "status" => 403 }
+    { "status" => "403" }
   end
 
   def parsed_response
