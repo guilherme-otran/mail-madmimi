@@ -1,7 +1,7 @@
 mail-madmimi
 ==============
-[![Build Status](https://travis-ci.org/guilherme-otran/mail-madmimi.png?branch=master)](https://travis-ci.org/guilherme-otran/mail-madmimi)
-[![Dependency Status](https://gemnasium.com/guilherme-otran/mail-madmimi.png)](https://gemnasium.com/guilherme-otran/mail-madmimi)
+[![Build Status](https://travis-ci.org/tagview/mail-madmimi.svg?branch=master)](https://travis-ci.org/tagview/mail-madmimi)
+[![Dependency Status](https://gemnasium.com/tagview/mail-madmimi.svg)](https://gemnasium.com/tagview/mail-madmimi)
 
 Integration of Mad Mimi with ActionMailer (Tested with Rails 4)
 
