@@ -1,0 +1,68 @@
+AllCops:
+  Include:
+    - "**/*.gemspec"
+    - "**/Rakefile"
+    - "**/Gemfile"
+    - "**/Vagrantfile"
+    - "**/config.ru"
+  Exclude:
+    - "vendor/**/*"
+    - "db/schema.rb"
+
+Style/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Style/BlockNesting:
+  Enabled: false
+
+Style/CaseIndentation:
+  IndentOneStep: true
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/Encoding:
+  EnforcedStyle: when_needed
+
+Style/FormatString:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  MaxLineLength: 120
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+Style/LambdaCall:
+  EnforcedStyle: call
+
+Style/LineLength:
+  Max: 120
+
+Style/NonNilCheck:
+  IncludeSemanticChanges: true
+
+Style/MethodLength:
+  Enabled: false
+
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - is_
+
+Style/RedundantReturn:
+  AllowMultipleReturnValues: true
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/WhileUntilModifier:
+  MaxLineLength: 120

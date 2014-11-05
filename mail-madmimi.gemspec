@@ -11,17 +11,19 @@ Gem::Specification.new do |s|
   s.email       = ["guilherme_otran@hotmail.com"]
   s.summary     = "A Mad Mimi Mail delivery for ActionMailer, Rails 4."
   s.description = "ActionMailer send method for madmimi api"
-  s.homepage    = "https://github.com/guilherme-otran/madmimi-rails4"
+  s.homepage    = "https://github.com/tagview/mail-madmimi"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  # This gem will work with 1.9.3 or greater...
-  s.required_ruby_version = '>= 1.9.3'
-  s.add_runtime_dependency "httparty", "~> 0.13.0"
+  # This gem will work with 1.9.3 or greater
+  s.required_ruby_version = ">= 1.9.3"
+  s.add_runtime_dependency "httparty", "~> 0.13.1"
   s.add_runtime_dependency "mail", ">= 2.5.4"
   s.add_runtime_dependency "actionmailer", ">= 4.0.0"
-  s.add_development_dependency "rspec", "~> 2.14.1"
+
+  s.add_development_dependency "rspec", "~> 3.1.0"
+  s.add_development_dependency "rubocop", "~> 0.27.0"
 end

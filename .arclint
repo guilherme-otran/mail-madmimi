@@ -1,0 +1,11 @@
+{
+  "exclude": "(^vendor/)",
+
+  "linters": {
+    "ruby": {
+      "type": "rubocop",
+      "include": "/\\.(rb|rake)$/",
+      "exclude": "@(^db/schema\\.rb)@"
+    }
+  }
+}

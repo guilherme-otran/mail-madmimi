@@ -1,8 +1,8 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Mail::Madmimi, "ActionMailer load process" do
   it "registers as delivery method" do
-    ActionMailer::Base.delivery_methods[:mad_mimi].should == Mail::Madmimi::Sender
+    expect(ActionMailer::Base.delivery_methods[:mad_mimi]).to eq(Mail::Madmimi::Sender)
   end
 end
 
@@ -16,7 +16,7 @@ describe Mail::Madmimi, "ActionMailer integration process" do
   end
 
   it "Madmimi::Sender instance receives the mail to send after delivering it" do
-    Mail::Madmimi::Sender.any_instance.should_receive(:deliver!).with(email)
+    allow_any_instance_of(Mail::Madmimi::Sender).to receive(:deliver!).with(email)
     email.deliver
   end
 end
