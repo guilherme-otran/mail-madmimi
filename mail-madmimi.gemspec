@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   # This gem will work with 1.9.3 or greater
   s.required_ruby_version = ">= 1.9.3"
-  s.add_runtime_dependency "httparty", "~> 0.13.1"
+  s.add_runtime_dependency "httparty", "~> 0.13.2"
   s.add_runtime_dependency "mail", ">= 2.5.4"
   s.add_runtime_dependency "actionmailer", ">= 4.0.0"
 
