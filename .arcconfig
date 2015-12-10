@@ -2,8 +2,6 @@
     "project_id": "mail-madmimi",
     "conduit_uri": "http://phabricator.tagview.com.br",
     "load": [
-        "libphutil/src",
-        ".arcanist-extensions/rubocop_linter",
         ".arcanist-extensions/rspec_test_engine"
     ],
     "unit.engine": "RSpecTestEngine",

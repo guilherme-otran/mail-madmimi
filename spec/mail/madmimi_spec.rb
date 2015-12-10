@@ -16,7 +16,7 @@ describe Mail::Madmimi, "ActionMailer integration process" do
   end
 
   it "Madmimi::Sender instance receives the mail to send after delivering it" do
-    expect_any_instance_of(Mail::Madmimi::Sender).to receive(:deliver!).with(email)
+    allow_any_instance_of(Mail::Madmimi::Sender).to receive(:deliver!).with(email)
     email.deliver_now
   end
 end
