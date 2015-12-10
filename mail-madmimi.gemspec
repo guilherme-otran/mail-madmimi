@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = "A Mad Mimi Mail delivery for ActionMailer, Rails 4."
   s.description = "ActionMailer send method for madmimi api"
   s.homepage    = "https://github.com/tagview/mail-madmimi"
+  s.license     = "ruby"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -21,9 +22,9 @@ Gem::Specification.new do |s|
   # This gem will work with 1.9.3 or greater
   s.required_ruby_version = ">= 1.9.3"
   s.add_runtime_dependency "httparty", "~> 0.13.2"
-  s.add_runtime_dependency "mail", ">= 2.5.4"
-  s.add_runtime_dependency "actionmailer", ">= 4.0.0"
+  s.add_runtime_dependency "mail", "~> 2.5", ">= 2.5.4"
+  s.add_runtime_dependency "actionmailer", "~> 4.0", ">= 4.0.0"
 
-  s.add_development_dependency "rspec", "~> 3.1.0"
-  s.add_development_dependency "rubocop", "~> 0.27.0"
+  s.add_development_dependency "rspec", "~> 3.4"
+  s.add_development_dependency "rubocop", "~> 0.35"
 end
