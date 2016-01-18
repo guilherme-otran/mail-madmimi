@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = "A Mad Mimi Mail delivery for ActionMailer, Rails 4."
   s.description = "ActionMailer send method for madmimi api"
   s.homepage    = "https://github.com/tagview/mail-madmimi"
-  s.license     = "ruby"
+  s.license     = "Ruby"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
