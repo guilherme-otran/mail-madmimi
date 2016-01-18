@@ -26,5 +26,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "actionmailer", "~> 4.0", ">= 4.0.0"
 
   s.add_development_dependency "rspec", "~> 3.4"
-  s.add_development_dependency "rubocop", "~> 0.35"
+  s.add_development_dependency "rubocop", "~> 0.36"
 end
