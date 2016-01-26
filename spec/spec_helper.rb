@@ -1,11 +1,12 @@
-require 'action_mailer'
-require 'mail/madmimi'
+require "action_mailer"
+require "action_controller"
+require "mail/madmimi"
 
 class TestMailer < ActionMailer::Base
   def test_mail(params_to_test)
     mail(params_to_test) do |format|
-        format.html { render(text: "Oi :P") }
-      end
+      format.html { render(text: "Oi :P") }
+    end
   end
 end
 
@@ -29,4 +30,3 @@ class IncorrectResponse
     "Not authorized"
   end
 end
-
